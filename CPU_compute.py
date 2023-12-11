@@ -6,8 +6,8 @@ from tensorflow.keras import layers, models
 from tensorflow.keras.datasets import cifar10
 import matplotlib.pyplot as plt
 import time
-
-
+import multiprocessing
+print("Num of CPU avaliavle : ",multiprocessing.cpu_count())
 # Check the number of available GPUs
 num_gpus_available = len(tf.config.experimental.list_physical_devices('GPU'))
 print("Num GPUs Available: ", num_gpus_available)
@@ -91,6 +91,8 @@ print("\nTest Accuracy:", test_acc)
 total_time = end_time - start_time
 print(f"\nTotal Training Time: {total_time} seconds")
 
+print("-"*30)
+print('Effficiency is :',total_time/multiprocessing.cpu_count())
 # Plot training history
 plt.plot(history.history['accuracy'], label='accuracy')
 plt.plot(history.history['loss'], label='loss')
