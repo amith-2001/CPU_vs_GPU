@@ -7,6 +7,7 @@ from tensorflow.keras.datasets import cifar10
 import matplotlib.pyplot as plt
 import time
 
+
 # Check the number of available GPUs
 num_gpus_available = len(tf.config.experimental.list_physical_devices('GPU'))
 print("Num GPUs Available: ", num_gpus_available)
