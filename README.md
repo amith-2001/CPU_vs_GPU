@@ -55,7 +55,7 @@ The GPU implementation using the Nvidia RTX 3050 demonstrated significant speedu
 
 ### Installation
 
-1. Clone the repository: `git clone [repository-url]`
+1. Clone the repository: `git clone github.com/amith-2001/CPU_vs_GPU.git`
 2. Install dependencies: `pip install -r requirements.txt`
 
 ### Usage
