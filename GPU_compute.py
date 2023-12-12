@@ -8,9 +8,8 @@ import numpy as np
 from sklearn.preprocessing import label_binarize
 from sklearn.multiclass import OneVsRestClassifier
 from scipy import interp
-
-
-# i made this change
+import sys
+sys.stdout = open('output.txt', 'w')
 
 # Check the number of available GPUs
 num_gpus_available = len(tf.config.experimental.list_physical_devices('GPU'))
@@ -67,7 +66,7 @@ else:
 
 # Train the model
 start_time = time.time()
-history = model.fit(train_data, epochs=5, validation_data=test_data)
+history = model.fit(train_data, epochs=2, validation_data=test_data)
 end_time = time.time()
 
 # Evaluate the model
@@ -109,6 +108,10 @@ plt.ylabel('True Positive Rate (Sensitivity)')
 plt.title('Receiver Operating Characteristic (ROC) Curve for Multi-Class')
 plt.legend(loc='lower right')
 plt.show()
+
+# Print the model summary
+with open('model_summary.txt', 'a') as f:
+    model.summary(print_fn=lambda x: f.write(x + '\n'))
 
 # Print the total training time
 total_time = end_time - start_time
